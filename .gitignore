@@ -1,4 +1,7 @@
 # Xcode
+
+demo_project/MultiTablesView.xcodeproj/project.xcworkspace/xcuserdata/*
+
 #
 build/
 *.pbxuser
