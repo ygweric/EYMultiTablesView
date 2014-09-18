@@ -18,30 +18,31 @@
 @optional
 /** @name Levels */
 #pragma mark Levels
-- (NSInteger)numberOfLevelsInMultiTablesView:(MultiTablesView *)multiTablesView;
-
-/** @name Sections */
+- (BOOL)hasSubTableViewInMultiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray *)indexPaths indexPath:(NSIndexPath *)indexPath;
+/** 
+ @name indexPaths.count == current level
+ */
 #pragma mark Sections
-- (NSInteger)multiTablesView:(MultiTablesView *)multiTablesView numberOfSectionsAtLevel:(NSInteger)level;
+- (NSInteger)multiTablesView:(MultiTablesView *)multiTablesView numberOfSectionsAtIndexPaths:(NSArray*)indexPaths;
 
 /** @name Sections Headers & Footers */
 #pragma mark Sections Headers & Footers
-- (NSString *)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level titleForHeaderInSection:(NSInteger)section;
-- (NSString *)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level titleForFooterInSection:(NSInteger)section;
+- (NSString *)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths titleForHeaderInSection:(NSInteger)section;
+- (NSString *)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths titleForFooterInSection:(NSInteger)section;
 
 /** @name Fixed Table Headers */
 #pragma mark Fixed Table Headers
-- (NSString *)multiTablesView:(MultiTablesView *)multiTablesView titleForFixedTableHeaderViewAtLevel:(NSInteger)level;
+- (NSString *)multiTablesView:(MultiTablesView *)multiTablesView titleForFixedTableHeaderViewAtIndexPaths:(NSArray*)indexPaths;
 
 /** @name Edit rows */
 #pragma mark Edit rows
-- (BOOL)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level canEditRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @required
 /** @name Rows */
 #pragma mark Rows
-- (NSInteger)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level numberOfRowsInSection:(NSInteger)section;
-- (UITableViewCell *)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (NSInteger)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell *)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -53,30 +54,30 @@
 @optional
 /** @name Levels */
 #pragma mark Levels
-- (void)multiTablesView:(MultiTablesView *)multiTablesView levelDidChange:(NSInteger)level;
+- (void)multiTablesView:(MultiTablesView *)multiTablesView levelDidChangeAtIndexPaths:(NSArray*)indexPaths;
 
 /** @name Sections Headers & Footers */
 #pragma mark Sections Headers & Footers
-- (CGFloat)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level heightForFooterInSection:(NSInteger)section;
-- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level viewForHeaderInSection:(NSInteger)section;
-- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level viewForFooterInSection:(NSInteger)section;
+- (CGFloat)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths heightForFooterInSection:(NSInteger)section;
+- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths viewForHeaderInSection:(NSInteger)section;
+- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths viewForFooterInSection:(NSInteger)section;
 
 /** @name Rows */
 #pragma mark Rows
-- (UITableViewCellSeparatorStyle)multiTablesView:(MultiTablesView *)multiTablesView separatorStyleForLevel:(NSInteger)level;
-- (void)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCellSeparatorStyle)multiTablesView:(MultiTablesView *)multiTablesView separatorStyleForIndexPaths:(NSArray*)indexPaths;
+- (void)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSIndexPath *)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)multiTablesView:(MultiTablesView *)multiTablesView level:(NSInteger)level commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)multiTablesView:(MultiTablesView *)multiTablesView indexPaths:(NSArray*)indexPaths commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 /** @name Fixed Table Headers */
 #pragma mark Fixed Table Headers
-- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView fixedTableHeaderViewAtLevel:(NSInteger)level;
+- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView fixedTableHeaderViewAtIndexPaths:(NSArray*)indexPaths;
 
 /** @name Table Headers */
 #pragma mark Table Headers
-- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView tableHeaderViewAtLevel:(NSInteger)level;
+- (UIView *)multiTablesView:(MultiTablesView *)multiTablesView tableHeaderViewAtIndexPaths:(NSArray*)indexPaths;
 
 @end
 
@@ -87,26 +88,28 @@
 
 /** @name Properties */
 #pragma mark Properties
-@property (nonatomic, assign) IBOutlet id<MultiTablesViewDataSource> dataSource;
-@property (nonatomic, assign) IBOutlet id<MultiTablesViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<MultiTablesViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<MultiTablesViewDelegate> delegate;
 
-@property (nonatomic, assign, readonly) UITableView *currentTableView;
+@property (nonatomic, weak, readonly) UITableView *currentTableView;
 @property (nonatomic, assign,readwrite) NSUInteger currentTableViewIndex;
 
 @property (nonatomic, assign) BOOL automaticPush;
 @property (nonatomic, assign) CGFloat nextTableViewHorizontalGap;
 
 
+
 /** @name Reload Datas */
 #pragma mark Reload Datas
-- (void)reloadData;
+- (void)initTableViewData;
+- (void)reloadDataAtIndexPaths:(NSArray*)indexPaths;
 - (UITableViewCell *)dequeueReusableCellForLevel:(NSInteger)level withIdentifier:(NSString *)identifier;
 
 /** @name Levels Details */
 #pragma mark Levels Details
 - (NSInteger)numberOfLevels;
 - (NSIndexPath *)indexPathForSelectedRowAtLevel:(NSInteger)level;
-- (UITableView *)tableViewAtIndex:(NSInteger)index;
+- (UITableView *)tableViewAtLevel:(NSInteger)level ;
 
 /** @name Push Level */
 #pragma mark Push Level
