@@ -15,9 +15,8 @@
 		4B797B76165BF4CD00858CEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B797B75165BF4CD00858CEC /* AppDelegate.m */; };
 		4B797B79165BF4CD00858CEC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B797B78165BF4CD00858CEC /* ViewController.m */; };
 		4B797B7C165BF4CD00858CEC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B797B7A165BF4CD00858CEC /* ViewController.xib */; };
-		5F253113177D7BE4000CC417 /* EYMultiTablesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F253110177D7BE4000CC417 /* EYMultiTablesView.m */; };
-		5F253114177D7BE4000CC417 /* UITableView+FixedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F253112177D7BE4000CC417 /* UITableView+FixedTableHeaderView.m */; };
-		5F4E693619CAB5F0008EF592 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4E693519CAB5F0008EF592 /* Images.xcassets */; };
+		5F4E693C19CAD0C1008EF592 /* EYMultiTablesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E693919CAD0C1008EF592 /* EYMultiTablesView.m */; };
+		5F4E693D19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E693B19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,11 +33,10 @@
 		4B797B77165BF4CD00858CEC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4B797B78165BF4CD00858CEC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4B797B7B165BF4CD00858CEC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		5F25310F177D7BE4000CC417 /* EYMultiTablesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYMultiTablesView.h; sourceTree = "<group>"; };
-		5F253110177D7BE4000CC417 /* EYMultiTablesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYMultiTablesView.m; sourceTree = "<group>"; };
-		5F253111177D7BE4000CC417 /* UITableView+FixedTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FixedTableHeaderView.h"; sourceTree = "<group>"; };
-		5F253112177D7BE4000CC417 /* UITableView+FixedTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FixedTableHeaderView.m"; sourceTree = "<group>"; };
-		5F4E693519CAB5F0008EF592 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MultiTablesView/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		5F4E693819CAD0C1008EF592 /* EYMultiTablesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYMultiTablesView.h; sourceTree = "<group>"; };
+		5F4E693919CAD0C1008EF592 /* EYMultiTablesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYMultiTablesView.m; sourceTree = "<group>"; };
+		5F4E693A19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FixedTableHeaderView.h"; sourceTree = "<group>"; };
+		5F4E693B19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FixedTableHeaderView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +56,7 @@
 		4B797B56165BF4CD00858CEC = {
 			isa = PBXGroup;
 			children = (
-				5F25310E177D7BE4000CC417 /* MultiTablesView */,
+				5F4E693719CAD0C1008EF592 /* EYMultiTablesView */,
 				4B797B6B165BF4CD00858CEC /* demo_project */,
 				4B797B64165BF4CD00858CEC /* Frameworks */,
 				4B797B62165BF4CD00858CEC /* Products */,
@@ -108,17 +106,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5F25310E177D7BE4000CC417 /* MultiTablesView */ = {
+		5F4E693719CAD0C1008EF592 /* EYMultiTablesView */ = {
 			isa = PBXGroup;
 			children = (
-				5F25310F177D7BE4000CC417 /* EYMultiTablesView.h */,
-				5F253110177D7BE4000CC417 /* EYMultiTablesView.m */,
-				5F253111177D7BE4000CC417 /* UITableView+FixedTableHeaderView.h */,
-				5F253112177D7BE4000CC417 /* UITableView+FixedTableHeaderView.m */,
-				5F4E693519CAB5F0008EF592 /* Images.xcassets */,
+				5F4E693819CAD0C1008EF592 /* EYMultiTablesView.h */,
+				5F4E693919CAD0C1008EF592 /* EYMultiTablesView.m */,
+				5F4E693A19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.h */,
+				5F4E693B19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.m */,
 			);
-			name = MultiTablesView;
-			path = ../MultiTablesView;
+			path = EYMultiTablesView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +168,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4E693619CAB5F0008EF592 /* Images.xcassets in Resources */,
 				4B797B70165BF4CD00858CEC /* InfoPlist.strings in Resources */,
 				4B797B7C165BF4CD00858CEC /* ViewController.xib in Resources */,
 			);
@@ -185,11 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F4E693D19CAD0C1008EF592 /* UITableView+FixedTableHeaderView.m in Sources */,
 				4B797B72165BF4CD00858CEC /* main.m in Sources */,
+				5F4E693C19CAD0C1008EF592 /* EYMultiTablesView.m in Sources */,
 				4B797B76165BF4CD00858CEC /* AppDelegate.m in Sources */,
 				4B797B79165BF4CD00858CEC /* ViewController.m in Sources */,
-				5F253113177D7BE4000CC417 /* EYMultiTablesView.m in Sources */,
-				5F253114177D7BE4000CC417 /* UITableView+FixedTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
