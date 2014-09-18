@@ -268,7 +268,6 @@
 					if (self.currentTableViewIndex > 0) {
 						draggedTableViewDefaultXCoordinate = self.bounds.size.width + 20;
 					}
-					[self setCurrentTableViewIndex:self.currentTableViewIndex-1 indexPath:nil];
 				}
 			}
 			[UIView animateWithDuration:0.2
@@ -279,6 +278,10 @@
 								 [draggedTableView.fixedTableHeaderView setCenter:CGPointMake(draggedTableView.center.x, draggedTableView.fixedTableHeaderView.center.y)];
 							 }
 							 completion:^(BOOL finished) {
+                                 [draggedTableView removeFromSuperview];
+                                 [self.tableViews removeObject:draggedTableView];
+                                 [self setCurrentTableViewIndex:self.currentTableViewIndex-1 indexPath:nil];
+                                 NSLog(@"2 DEBUG  _indexPaths:%@",_indexPaths);
 							 }];
 		} break;
 		default: {
