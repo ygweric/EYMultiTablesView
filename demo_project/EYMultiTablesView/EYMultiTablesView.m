@@ -42,13 +42,13 @@
 
 #pragma mark Properties
 @synthesize dataSource = _dataSource;
-- (void)setDataSource:(id<MultiTablesViewDataSource>)dataSource {
+- (void)setDataSource:(id<EYMultiTablesViewDataSource>)dataSource {
 	if (![_dataSource isEqual:dataSource]) {
 		_dataSource = dataSource;
 	}
 }
 @synthesize delegate = _delegate;
-- (void)setDelegate:(id<MultiTablesViewDelegate>)delegate {
+- (void)setDelegate:(id<EYMultiTablesViewDelegate>)delegate {
 	if (![_delegate isEqual:delegate]) {
 		_delegate = delegate;
 	}

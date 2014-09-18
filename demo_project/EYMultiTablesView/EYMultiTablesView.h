@@ -13,7 +13,7 @@
 
 /** @name MultiTablesViewDataSource protocol */
 #pragma mark - MultiTablesViewDataSource protocol
-@protocol MultiTablesViewDataSource <NSObject>
+@protocol EYMultiTablesViewDataSource <NSObject>
 
 @optional
 /** @name Levels */
@@ -49,7 +49,7 @@
 
 /** @name MultiTablesViewDelegate protocol */
 #pragma mark - MultiTablesViewDelegate protocol
-@protocol MultiTablesViewDelegate <NSObject>
+@protocol EYMultiTablesViewDelegate <NSObject>
 
 @optional
 /** @name Levels */
@@ -88,8 +88,8 @@
 
 /** @name Properties */
 #pragma mark Properties
-@property (nonatomic, weak) IBOutlet id<MultiTablesViewDataSource> dataSource;
-@property (nonatomic, weak) IBOutlet id<MultiTablesViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<EYMultiTablesViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<EYMultiTablesViewDelegate> delegate;
 
 @property (nonatomic, weak, readonly) UITableView *currentTableView;
 @property (nonatomic, assign,readwrite) NSUInteger currentTableViewIndex;
@@ -113,7 +113,7 @@
 
 /** @name Push Level */
 #pragma mark Push Level
--(void)pushNextTableView:(UITableView*)tableView;
+-(void)pushNextTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
 
 /** @name Pop Levels */
 #pragma mark Pop Levels
