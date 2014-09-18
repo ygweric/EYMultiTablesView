@@ -2,16 +2,16 @@
 //  MultiTablesView.m
 //  MultiTablesView
 //
-//  Created by Zouhair on 20/06/13.
-//  Copyright (c) 2013 Zedenem. All rights reserved.
+//  Created by Eric Yang on 18/09/14.
+//  Copyright (c) 2014 ygweric. All rights reserved.
 //
 
-#import "MultiTablesView.h"
+#import "EYMultiTablesView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UITableView+FixedTableHeaderView.h"
 
 #pragma mark - Interface
-@interface MultiTablesView () <UITableViewDataSource, UITableViewDelegate>
+@interface EYMultiTablesView () <UITableViewDataSource, UITableViewDelegate>
 
 /** @name Setup */
 #pragma mark Setup
@@ -38,7 +38,7 @@
 @end
 
 #pragma mark - Implementation
-@implementation MultiTablesView
+@implementation EYMultiTablesView
 
 #pragma mark Properties
 @synthesize dataSource = _dataSource;
